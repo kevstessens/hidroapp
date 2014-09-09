@@ -1,24 +1,96 @@
+<%unless current_user.nil?%>
+
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Hidroapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <html lang="en">
 
+    <head>
+      <title>HidroLogic</title><meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+      <link rel="stylesheet" href="../assets/bootstrap.min.css" />
+      <link rel="stylesheet" href="../assets/bootstrap-responsive.min.css" />
+      <link rel="stylesheet" href="../assets/fullcalendar.css" />
+      <link rel="stylesheet" href="../assets/maruti-style.css" />
+      <link rel="stylesheet" href="../assets/maruti-media.css" class="skin-color" />
+    </head>
+    <body>
+
+    <!--Header-part-->
+    <div id="header">
+      <h1><a href="http://www.flipstudios.com.ar">Creado por FlipStudios</a></h1>
+    </div>
+    <!--close-Header-part-->
+
+    <!--top-Header-messaages-->
+    <div class="btn-group rightzero"> <a class="top_message tip-left" title="Manage Files"><i class="icon-file"></i></a> <a class="top_message tip-bottom" title="Manage Users"><i class="icon-user"></i></a> <a class="top_message tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a> <a class="top_message tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a> </div>
+    <!--close-top-Header-messaages-->
+
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+      <ul class="nav">
+        <li class="" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Perfil</span></a></li>
+        <li class="">        <%=link_to '<i class="icon icon-share-alt"></i> <span class="text">Salir</span>'.html_safe, signout_path%>
+        </li>
+      </ul>
+    </div>
+    <!--close-top-Header-menu-->
+
+    <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Menú</a>
+      <ul>
+        <li class="active"><a href="<%=root_path%>"><i class="icon icon-home"></i> <span>Inicio</span></a></li>
+        <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Gráficos</span></a> </li>
+        <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tablas</span></a></li>
+      </ul>
+    </div>
 <%= yield %>
+    <div class="row-fluid">
+      <div id="footer" class="span12"> 2014 &copy; HidroLogic. Desarrollado por <a href="http://flipstudios.com.ar">FlipStudios</a> </div>
+    </div>
+    <script src="../assets/excanvas.min.js"></script>
+    <script src="../assets/jquery.min.js"></script>
+    <script src="../assets/jquery.ui.custom.js"></script>
+    <script src="../assets/bootstrap.min.js"></script>
+    <script src="../assets/jquery.flot.min.js"></script>
+    <script src="../assets/jquery.flot.resize.min.js"></script>
+    <script src="../assets/jquery.peity.min.js"></script>
+    <script src="../assets/fullcalendar.min.js"></script>
+    <script src="../assets/maruti.js"></script>
+    <script src="../assets/maruti.dashboard.js"></script>
+    <script src="../assets/maruti.chat.js"></script>
+    <script type="text/javascript">
+  // This function is called from the pop-up menus to transfer to
+  // a different page. Ignore if the value returned is a null string:
+  function goPage (newURL) {
+
+      // if url is empty, skip the menu dividers and reset the menu selection to default
+      if (newURL != "") {
+
+          // if url is "-", it is this page -- reset the menu:
+          if (newURL == "-" ) {
+              resetMenu();
+          }
+          // else, send page to designated URL
+          else {
+            document.location.href = newURL;
+          }
+      }
+  }
+
+// resets the menu selection upon entry to this page:
+function resetMenu() {
+   document.gomenu.selector.selectedIndex = 2;
+}
+</script>
+    </body>
+
+    </html>
 
 
-<div id="user-widget">
-  <% if current_user %>
-      Welcome <strong><%= current_user.name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
+<% else%>
 
-</body>
-</html>
+
+    <%= yield %>
+
+<% end %>

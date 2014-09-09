@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter :authenticate_user!, only: [:index]
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
@@ -11,6 +12,9 @@ class SessionsController < ApplicationController
   end
 
   def new
+  end
+
+  def index
 
   end
 end
