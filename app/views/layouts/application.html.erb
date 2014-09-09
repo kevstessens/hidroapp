@@ -30,7 +30,7 @@
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
       <ul class="nav">
-        <li class="" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Perfil</span></a></li>
+        <li class="" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text"><%= current_user.name%></span></a></li>
         <li class="">        <%=link_to '<i class="icon icon-share-alt"></i> <span class="text">Salir</span>'.html_safe, signout_path%>
         </li>
       </ul>
