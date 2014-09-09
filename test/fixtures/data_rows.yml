@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sub_data_table_id: 1
+  year: 1
+  t: 
+  i: 
+  small_n: 
+  big_n: 
+  p: 
+  r: 
+  d: 
+
+two:
+  sub_data_table_id: 1
+  year: 1
+  t: 
+  i: 
+  small_n: 
+  big_n: 
+  p: 
+  r: 
+  d: 

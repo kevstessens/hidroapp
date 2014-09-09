@@ -1,0 +1,25 @@
+<%= form_for(@sub_data_table) do |f| %>
+  <% if @sub_data_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sub_data_table.errors.count, "error") %> prohibited this sub_data_table from being saved:</h2>
+
+      <ul>
+      <% @sub_data_table.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data_table_id %><br>
+    <%= f.number_field :data_table_id %>
+  </div>
+  <div class="field">
+    <%= f.label :time_in_minutes %><br>
+    <%= f.number_field :time_in_minutes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

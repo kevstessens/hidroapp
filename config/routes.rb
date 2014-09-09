@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :data_rows
+
+  resources :sub_data_tables
+
+  resources :data_tables
+
   resources :users
   resources :sessions
 

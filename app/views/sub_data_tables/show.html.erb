@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data table:</strong>
+  <%= @sub_data_table.data_table_id %>
+</p>
+
+<p>
+  <strong>Time in minutes:</strong>
+  <%= @sub_data_table.time_in_minutes %>
+</p>
+
+<%= link_to 'Edit', edit_sub_data_table_path(@sub_data_table) %> |
+<%= link_to 'Back', sub_data_tables_path %>

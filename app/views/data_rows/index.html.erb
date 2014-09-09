@@ -1,0 +1,41 @@
+<h1>Listing data_rows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sub data table</th>
+      <th>Year</th>
+      <th>T</th>
+      <th>I</th>
+      <th>Small n</th>
+      <th>Big n</th>
+      <th>P</th>
+      <th>R</th>
+      <th>D</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_rows.each do |data_row| %>
+      <tr>
+        <td><%= data_row.sub_data_table_id %></td>
+        <td><%= data_row.year %></td>
+        <td><%= data_row.t %></td>
+        <td><%= data_row.i %></td>
+        <td><%= data_row.small_n %></td>
+        <td><%= data_row.big_n %></td>
+        <td><%= data_row.p %></td>
+        <td><%= data_row.r %></td>
+        <td><%= data_row.d %></td>
+        <td><%= link_to 'Show', data_row %></td>
+        <td><%= link_to 'Edit', edit_data_row_path(data_row) %></td>
+        <td><%= link_to 'Destroy', data_row, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data row', new_data_row_path %>

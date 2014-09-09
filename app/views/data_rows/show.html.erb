@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sub data table:</strong>
+  <%= @data_row.sub_data_table_id %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @data_row.year %>
+</p>
+
+<p>
+  <strong>T:</strong>
+  <%= @data_row.t %>
+</p>
+
+<p>
+  <strong>I:</strong>
+  <%= @data_row.i %>
+</p>
+
+<p>
+  <strong>Small n:</strong>
+  <%= @data_row.small_n %>
+</p>
+
+<p>
+  <strong>Big n:</strong>
+  <%= @data_row.big_n %>
+</p>
+
+<p>
+  <strong>P:</strong>
+  <%= @data_row.p %>
+</p>
+
+<p>
+  <strong>R:</strong>
+  <%= @data_row.r %>
+</p>
+
+<p>
+  <strong>D:</strong>
+  <%= @data_row.d %>
+</p>
+
+<%= link_to 'Edit', edit_data_row_path(@data_row) %> |
+<%= link_to 'Back', data_rows_path %>

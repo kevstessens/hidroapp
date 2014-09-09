@@ -1,0 +1,27 @@
+<h1>Listing sub_data_tables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data table</th>
+      <th>Time in minutes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sub_data_tables.each do |sub_data_table| %>
+      <tr>
+        <td><%= sub_data_table.data_table_id %></td>
+        <td><%= sub_data_table.time_in_minutes %></td>
+        <td><%= link_to 'Show', sub_data_table %></td>
+        <td><%= link_to 'Edit', edit_sub_data_table_path(sub_data_table) %></td>
+        <td><%= link_to 'Destroy', sub_data_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sub data table', new_sub_data_table_path %>
