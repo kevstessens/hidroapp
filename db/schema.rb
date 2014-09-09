@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909042806) do
+ActiveRecord::Schema.define(version: 20140909062020) do
+
+  create_table "data_rows", force: true do |t|
+    t.integer  "sub_data_table_id"
+    t.integer  "year"
+    t.decimal  "t"
+    t.decimal  "i"
+    t.decimal  "small_n"
+    t.decimal  "big_n"
+    t.decimal  "p"
+    t.decimal  "r"
+    t.decimal  "d"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_tables", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_data_tables", force: true do |t|
+    t.integer  "data_table_id"
+    t.integer  "time_in_minutes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
