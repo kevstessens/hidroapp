@@ -15,7 +15,9 @@ class SubDataTablesController < ApplicationController
 
   # GET /sub_data_tables/new
   def new
+    @data_table = DataTable.find(params[:data_table_id])
     @sub_data_table = SubDataTable.new
+    @sub_data_table.data_table_id = params[:data_table_id]
   end
 
   # GET /sub_data_tables/1/edit
@@ -29,7 +31,7 @@ class SubDataTablesController < ApplicationController
 
     respond_to do |format|
       if @sub_data_table.save
-        format.html { redirect_to @sub_data_table, notice: 'Sub data table was successfully created.' }
+        format.html { redirect_to @sub_data_table.data_table, notice: 'Se creó el set de datos correctamente.' }
         format.json { render :show, status: :created, location: @sub_data_table }
       else
         format.html { render :new }

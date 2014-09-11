@@ -6,7 +6,7 @@ class DataTablesController < ApplicationController
   # GET /data_tables
   # GET /data_tables.json
   def index
-    @data_tables = DataTable.all
+    @data_tables = DataTable.where(:user_id => current_user.id).all.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /data_tables/1
@@ -29,6 +29,7 @@ class DataTablesController < ApplicationController
     @data_table = DataTable.new(data_table_params)
 
     respond_to do |format|
+      @data_table.user =current_user
       if @data_table.save
         format.html { redirect_to @data_table, notice: 'Data table was successfully created.' }
         format.json { render :show, status: :created, location: @data_table }

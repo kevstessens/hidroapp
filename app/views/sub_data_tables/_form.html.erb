@@ -1,25 +1,22 @@
-<%= form_for(@sub_data_table) do |f| %>
-  <% if @sub_data_table.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sub_data_table.errors.count, "error") %> prohibited this sub_data_table from being saved:</h2>
+<% if @sub_data_table.errors.any? %>
 
-      <ul>
-      <% @sub_data_table.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="alert alert-error alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading">Error!</h4>
+      Hubo un problema al guardar el set de datos, completaste todos los datos? </div>
+<%end%>
+
+
+
+<%= form_for(@sub_data_table, :html => {:class => "form-horizontal"}) do |f|  %>
+    <div class="control-group">
+      <label class="control-label">Duración de la lluvia:</label>
+      <div class="controls">
+        <%= f.number_field :time_in_minutes, :class =>"span20", :hint=> "en minutos..." %>
+      </div>
     </div>
-  <% end %>
+    <%= f.hidden_field :data_table_id %>
 
-  <div class="field">
-    <%= f.label :data_table_id %><br>
-    <%= f.number_field :data_table_id %>
-  </div>
-  <div class="field">
-    <%= f.label :time_in_minutes %><br>
-    <%= f.number_field :time_in_minutes %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.submit 'Crear set de datos', :class => 'btn btn-success' %>
+    </div>
+<% end%>

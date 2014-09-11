@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
   end
 
   def index
-
+    @data_tables = DataTable.all.last(5)
   end
 end

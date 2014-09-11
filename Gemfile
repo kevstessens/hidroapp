@@ -46,3 +46,5 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 
+gem 'will_paginate', '~> 3.0'
+

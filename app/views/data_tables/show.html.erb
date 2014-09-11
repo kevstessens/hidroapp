@@ -1,9 +1,63 @@
-<p id="notice"><%= notice %></p>
+<div id="content">
 
-<p>
-  <strong>Name:</strong>
-  <%= @data_table.name %>
-</p>
 
-<%= link_to 'Edit', edit_data_table_path(@data_table) %> |
-<%= link_to 'Back', data_tables_path %>
+  <div class="quick-actions_homepage">
+    <ul class="quick-actions">
+      <li> <a href="<%= new_sub_data_table_path(:data_table_id => @data_table.id) %>"> Nuevo set de datos </a> </li>
+    </ul>
+  </div>
+
+
+  <%unless notice.nil?%>
+  <div class="container-fluid">
+    <div class="alert alert-success">
+      <button class="close" data-dismiss="alert">×</button>
+      <strong>Exito!</strong> se creó correctamente el set de datos</div>
+
+    <%end%>
+
+    <div class="widget-box">
+      <div class="widget-content">
+
+        <div class="row-fluid">
+
+          <div class="span12">
+            <h3>Sets de datos de la tabla <%= @data_table.name%></h3>
+
+            <div class="widget-box">
+              <div class="widget-title">
+                <ul class="nav nav-tabs">
+                  <%@data_table.sub_data_tables.order("time_in_minutes ASC").each do |sub|%>
+                      <%if sub == @data_table.sub_data_tables.order("time_in_minutes ASC").first%>
+                      <li class="active">
+                        <%else%>
+                          <li class="">
+                          <%end%>
+                      <a data-toggle="tab" href="#tab<%= sub.time_in_minutes%>"><%= sub.time_in_minutes%> Minutos</a></li>
+
+                <% end%>
+                </ul>
+              </div>
+              <div class="widget-content tab-content">
+
+                <%@data_table.sub_data_tables.order("time_in_minutes ASC").each do |sub|%>
+
+                    <%if sub == @data_table.sub_data_tables.order("time_in_minutes ASC").first%>
+                        <div id="tab<%= sub.time_in_minutes%>" class="tab-pane active">
+                    <%else%>
+                        <div id="tab<%= sub.time_in_minutes%>" class="tab-pane">
+                    <%end%>
+                    <p> <%= sub.time_in_minutes%></p>
+                    </div>
+                <% end%>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+  </div>
+</div>

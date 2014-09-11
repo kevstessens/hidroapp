@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="779961641">
+  <component name="DataSourceManagerImpl" format="xml" hash="2107301282">
     <data-source source="LOCAL" name="Rails hidroapp: development" uuid="9cdd01b4-b0c0-4cd6-9557-2315ec4aea50">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
