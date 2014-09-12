@@ -72,6 +72,7 @@ class SubDataTablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_data_table_params
-      params.require(:sub_data_table).permit(:data_table_id, :time_in_minutes)
+      params.require(:sub_data_table).permit(:data_table_id, :time_in_minutes,
+                                             data_rows_attributes: [:t,:year,:sub_data_table_id, :id])
     end
 end

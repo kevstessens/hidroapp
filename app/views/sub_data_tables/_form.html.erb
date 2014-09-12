@@ -7,14 +7,32 @@
 
 
 
-<%= form_for(@sub_data_table, :html => {:class => "form-horizontal"}) do |f|  %>
+<%= nested_form_for(@sub_data_table, :html => {:class => "form-horizontal"}) do |f|  %>
     <div class="control-group">
       <label class="control-label">Duración de la lluvia:</label>
       <div class="controls">
-        <%= f.number_field :time_in_minutes, :class =>"span20", :hint=> "en minutos..." %>
+        <%= f.number_field :time_in_minutes, :class =>"span8", :hint=> "en minutos..." %>
       </div>
     </div>
     <%= f.hidden_field :data_table_id %>
+
+    <% f.object.data_rows.build unless !f.object.data_rows.blank? %>
+    <%= f.fields_for :data_rows do |o| %>
+        <div class="control-group">
+          <label class="control-label">año y valor:</label>
+          <div class="controls">
+            <%= o.number_field :year, :class=> "span3" %>
+            <%= o.number_field :t , :class=> "span3", :step => 'any' %>
+            <%= o.link_to_remove "Remover fila", :class =>"btn btn-danger" %>
+
+          </div>
+        </div>
+
+    <%end%>
+
+      <%= f.link_to_add "Agregar Fila", :data_rows, :class => "btn btn-warning", :style => "margin-left:20px; margin-bottom:20px;"%>
+
+
 
     <div class="form-actions">
       <%= f.submit 'Crear set de datos', :class => 'btn btn-success' %>

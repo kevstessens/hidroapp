@@ -44,6 +44,7 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'nested_form'
 
 
 gem 'will_paginate', '~> 3.0'
