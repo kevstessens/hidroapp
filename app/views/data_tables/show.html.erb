@@ -2,9 +2,11 @@
 
 
   <div class="quick-actions_homepage">
+    <% if current_user == @data_table.user%>
     <ul class="quick-actions">
       <li> <a href="<%= new_sub_data_table_path(:data_table_id => @data_table.id) %>"> Nuevo set de datos </a> </li>
     </ul>
+        <% end %>
   </div>
 
 
@@ -54,7 +56,7 @@
                           <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid"><div class=""><div id="DataTables_Table_0_length" class="dataTables_length"></div></div><table class="table table-bordered data-table dataTable" id="DataTables_Table_0">
                             <thead>
                             <tr role="row">
-                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 250px;"><div class="DataTables_sort_wrapper">Año<span class="DataTables_sort_icon css_right ui-icon ui-icon-triangle-1-n"></span></div></th>
+                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="" style="width: 250px;"><div class="DataTables_sort_wrapper">Año<span class="DataTables_sort_icon css_right ui-icon ui-icon-triangle-1-n"></span></div></th>
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 435px;"><div class="DataTables_sort_wrapper">ML<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 408px;"><div class="DataTables_sort_wrapper">I<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">n<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
@@ -68,13 +70,13 @@
 
                             <% sub.data_rows.each do |row| %>
                                 <tr class="gradeA">
-                                  <td class=" sorting_1"><%= row.year%></td>
-                                  <td class=" "><%= row.t%></td>
-                                  <td class=" "><%= row.calc_i%></td>
-                                  <td class=" "><%= row.calc_n%></td>
-                                  <td class=" "><%= row.calc_big_n%></td>
-                                  <td class=" "><%= row.calc_p%></td>
-                                  <td class=" "><%= row.calc_r.round(2)%></td>
+                                  <td class=" sorting_1" style="text-align: center" ><%= row.year%></td>
+                                  <td class=" " style="text-align: center"><%= row.t%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_i%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_n%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_big_n%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_p%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_r.round(2)%></td>
                                 </tr>
                             <% end %>
 
@@ -83,6 +85,9 @@
                         </div>
 
               <% end %>
+                    <% if current_user == sub.data_table.user%>
+                        <%= link_to "Editar datos de "+sub.time_in_minutes.to_s+" minutos", edit_sub_data_table_path(sub), :class => 'btn btn-success', :style => 'margin-top: 10px;'%>
+                    <%end%>
                     </div>
                 <% end%>
 

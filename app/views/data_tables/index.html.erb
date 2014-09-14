@@ -5,23 +5,29 @@
 <div class="widget-box">
   <div class="widget-title">
     <span class="icon"><i class="icon-th"></i></span>
-    <h5>Mis tablas de datos</h5>
+    <h5>Tablas de datos</h5>
     <div class="buttons"><a href="<%= new_data_table_path %>" class="btn btn-mini"><i class="icon-plus"></i> Nueva tabla</a></div>
   </div>
   <div class="widget-content nopadding">
     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid"><div class=""><div id="DataTables_Table_0_length" class="dataTables_length"></div></div><table class="table table-bordered data-table dataTable" id="DataTables_Table_0">
       <thead>
-      <tr role="row"><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 250px;"><div class="DataTables_sort_wrapper">Nombre de la tabla<span class="DataTables_sort_icon css_right ui-icon ui-icon-triangle-1-n"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 435px;"><div class="DataTables_sort_wrapper">Cargada el<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 408px;"><div class="DataTables_sort_wrapper">Cantidad de subtablas<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">Ver Detalle<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr>
+      <tr role="row">
+        <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 250px;"><div class="DataTables_sort_wrapper">Nombre de la tabla<span class="DataTables_sort_icon css_right ui-icon ui-icon-triangle-1-n"></span></div></th>
+        <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 408px;"><div class="DataTables_sort_wrapper">Creador<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
+        <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 200px;"><div class="DataTables_sort_wrapper">Sets de datos<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
+        <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 435px;"><div class="DataTables_sort_wrapper">Cargada el<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
+        <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">Ver Detalle<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr>
       </thead>
 
       <tbody role="alert" aria-live="polite" aria-relevant="all">
 
       <% @data_tables.each do |data_table| %>
           <tr class="gradeA">
-            <td class=" sorting_1"><%= data_table.name%></td>
-            <td class=" "><%= data_table.created_at.strftime("%d/%m/%y %Y:%M")%></td>
-            <td class=" "><%= data_table.sub_data_tables.count %></td>
-            <td class="center "><%= link_to 'Ver Detalle', data_table %></td>
+            <td class=" center" style="text-align: center"><%= data_table.name%></td>
+            <td class=" " style="text-align: center"><%= data_table.user.name %></td>
+            <td class="  " style="text-align: center"><%= data_table.sub_data_tables.count %></td>
+            <td class=" " style="text-align: center"><%= data_table.created_at.strftime("%d/%m/%y %Y:%M")%></td>
+            <td class="center " style="text-align: center"><%= link_to 'Ver Detalle', data_table %></td>
           </tr>
           <% end %>
 

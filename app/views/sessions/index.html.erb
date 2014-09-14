@@ -22,7 +22,7 @@
                   <li>
                       <div class="user-thumb"> <img width="40" height="40" alt="User" src="<%= "https://graph.facebook.com/" + table.user.uid+ "/picture?type=square"%>"> </div>
                       <div class="article-post"> <span class="user-info"> <%= table.user.name%> / <%= table.created_at.strftime("%d/%m/%y")%> / <%= table.created_at.strftime("%H:%M")%>  </span>
-                        <p><a href="#">Cargó la tabla <b><%= table.name%></b></a> </p>
+                        <p><a href="<%=data_table_path(table)%>">Cargó la tabla <b><%= table.name%></b></a> </p>
                     </div>
                     </li>
                       <% end %>

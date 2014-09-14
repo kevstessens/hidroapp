@@ -45,7 +45,7 @@ class SubDataTablesController < ApplicationController
   def update
     respond_to do |format|
       if @sub_data_table.update(sub_data_table_params)
-        format.html { redirect_to @sub_data_table, notice: 'Sub data table was successfully updated.' }
+        format.html { redirect_to @sub_data_table.data_table, notice: 'Se actualizó el set de datos correctamente.' }
         format.json { render :show, status: :ok, location: @sub_data_table }
       else
         format.html { render :edit }

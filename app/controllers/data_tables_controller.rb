@@ -6,7 +6,7 @@ class DataTablesController < ApplicationController
   # GET /data_tables
   # GET /data_tables.json
   def index
-    @data_tables = DataTable.where(:user_id => current_user.id).all.paginate(:page => params[:page], :per_page => 10)
+    @data_tables = DataTable.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /data_tables/1
