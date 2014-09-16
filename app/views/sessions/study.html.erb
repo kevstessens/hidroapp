@@ -1,0 +1,42 @@
+
+
+<div id="content">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title">
+        <span class="icon">
+            <i class="icon-align-justify"></i>
+        </span>
+            <h5>Nueva curva IDF</h5>
+          </div>
+          <div class="widget-content nopadding">
+
+            <%= form_tag "calculate_idf", :class => "form-horizontal" do %>
+
+
+
+                <div class="control-group">
+                  <label class="control-label">Tabla de tormentas:</label>
+                  <div class="controls">
+                    <%= select_tag "data_table_id", options_from_collection_for_select(@data_tables, "id", "name"), :class=> "select2-choice" %>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Recurrencia [años]:</label>
+                  <div class="controls">
+                    <%= number_field_tag "recurrence", :class=> "span3" %>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <%= submit_tag 'Calcular Curva IDF', :class => 'btn btn-success' %>
+                </div>
+            <% end %>          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

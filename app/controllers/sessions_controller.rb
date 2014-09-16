@@ -14,6 +14,30 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def study
+    @data_tables = DataTable.all
+  end
+
+  def calculate_study
+    @data_table = DataTable.find(params['data_table_id'])
+    @graph_data = Array.new
+    @data_table.sub_data_tables.order("time_in_minutes ASC").each do |table|
+      graph_table = GraphTuple.new
+      graph_table.key = table.time_in_minutes
+      dif = 99999
+      table.data_rows.each do |rows|
+        diference = Math.sqrt(((params['recurrence'].to_i) - rows.calc_i)*((params['recurrence'].to_i) - rows.calc_i))
+        if diference < dif
+          graph_table.value=rows.calc_i
+          dif = diference
+        end
+      end
+      @graph_data << graph_table
+    end
+
+
+  end
+
   def index
     @data_tables = DataTable.all.last(5)
   end

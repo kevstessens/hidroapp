@@ -2,7 +2,7 @@ class DataRow < ActiveRecord::Base
   belongs_to :sub_data_table
 
   def calc_i
-    self.t/0.083
+    self.t/(self.sub_data_table.time_in_minutes/60.0)
   end
 
   def calc_n

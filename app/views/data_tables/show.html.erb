@@ -57,12 +57,12 @@
                             <thead>
                             <tr role="row">
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="" style="width: 250px;"><div class="DataTables_sort_wrapper">Año<span class="DataTables_sort_icon css_right ui-icon ui-icon-triangle-1-n"></span></div></th>
-                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 435px;"><div class="DataTables_sort_wrapper">ML<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
-                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 408px;"><div class="DataTables_sort_wrapper">I<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
+                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 435px;"><div class="DataTables_sort_wrapper">mm<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
+                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 408px;"><div class="DataTables_sort_wrapper">I [mm/h]<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">n<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">N<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
                               <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">Probabilidad<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
-                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">Recurrencia<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
+                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 221px;"><div class="DataTables_sort_wrapper">Recurrencia [años]<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th>
                             </tr>
                             </thead>
 
@@ -72,10 +72,10 @@
                                 <tr class="gradeA">
                                   <td class=" sorting_1" style="text-align: center" ><%= row.year%></td>
                                   <td class=" " style="text-align: center"><%= row.t%></td>
-                                  <td class=" " style="text-align: center"><%= row.calc_i%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_i.round(2)%></td>
                                   <td class=" " style="text-align: center"><%= row.calc_n%></td>
                                   <td class=" " style="text-align: center"><%= row.calc_big_n%></td>
-                                  <td class=" " style="text-align: center"><%= row.calc_p%></td>
+                                  <td class=" " style="text-align: center"><%= row.calc_p.round(2)%></td>
                                   <td class=" " style="text-align: center"><%= row.calc_r.round(2)%></td>
                                 </tr>
                             <% end %>

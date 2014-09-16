@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :sessions
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'new_idf', to: 'sessions#study', via: [:get, :post]
+  match 'calculate_idf', to: 'sessions#calculate_study', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
