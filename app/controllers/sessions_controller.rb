@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       graph_table.key = table.time_in_minutes
       dif = 99999
       table.data_rows.each do |rows|
-        diference = Math.sqrt(((params['recurrence'].to_i) - rows.calc_i)*((params['recurrence'].to_i) - rows.calc_i))
+        diference = Math.sqrt(((params['recurrence'].to_i) - rows.calc_r)*((params['recurrence'].to_i) - rows.calc_r))
         if diference < dif
           graph_table.value=rows.calc_i
           dif = diference
