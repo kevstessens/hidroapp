@@ -4,6 +4,11 @@
     <html lang="en">
 
     <head>
+      <link href="../assets/logo_iphone.png" rel="apple-touch-icon" />
+      <link href="../assets/logo_iphone_152.png" rel="apple-touch-icon-precomposed">
+      <link href="../assets/logo_iphone_76.png" rel="apple-touch-icon" sizes="76x76" />
+      <link href="../assets/logo_iphone_120.png" rel="apple-touch-icon" sizes="120x120" />
+      <link href="../assets/logo_iphone_152.png" rel="apple-touch-icon" sizes="152x152" />
       <title>HidroLogic</title><meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -40,7 +45,7 @@
     <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Menú</a>
       <ul>
         <li class="active"><a href="<%=root_path%>"><i class="icon icon-home"></i> <span>Inicio</span></a></li>
-        <li> <a href="<%= new_idf_path%>"><i class="icon icon-signal"></i> <span>Estudios</span></a> </li>
+        <li> <a href="<%= new_idf_path%>"><i class="icon icon-signal"></i> <span>Curvas IDF</span></a> </li>
         <li><a href="<%= data_tables_path%>"><i class="icon icon-th"></i> <span>Tablas</span></a></li>
       </ul>
     </div>
@@ -115,8 +120,23 @@ $(document).ready(function(){
 
 
 <% else%>
+    <html lang="en">
+
+    <head>
+      <link href="../assets/logo_iphone.png" rel="apple-touch-icon" />
+      <link href="../assets/logo_iphone_152.png" rel="apple-touch-icon-precomposed">
+      <link href="../assets/logo_iphone_76.png" rel="apple-touch-icon" sizes="76x76" />
+      <link href="../assets/logo_iphone_120.png" rel="apple-touch-icon" sizes="120x120" />
+      <link href="../assets/logo_iphone_152.png" rel="apple-touch-icon" sizes="152x152" />
+      <title>HidroLogic</title><meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
 
 
     <%= yield %>
+    </body>
+    </html>
+
 
 <% end %>
