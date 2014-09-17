@@ -4,25 +4,7 @@
 **/
 $(document).ready(function(){
 	
-	
-	// === Prepare the chart data ===/
-	var sin = [], cos = [];
-    for (var i = 0; i < 14; i += 0.5) {
-        sin.push([i, Math.sin(i)]);
-        cos.push([i, Math.cos(i)]);
-    }
-	
-	// === Make chart === //
-    var plot = $.plot($(".chart"),
-           [ { data: sin, label: "sin(x)", color: "#BA1E20"}, { data: cos, label: "cos(x)",color: "#459D1C" } ], {
-               series: {
-                   lines: { show: true },
-                   points: { show: true }
-               },
-               grid: { hoverable: true, clickable: true },
-               yaxis: { min: -1.6, max: 1.6 }
-		   });
-    
+
 	// === Point hover in chart === //
     var previousPoint = null;
     $(".chart").bind("plothover", function (event, pos, item) {
@@ -37,7 +19,7 @@ $(document).ready(function(){
                 var x = item.datapoint[0].toFixed(2),
 					y = item.datapoint[1].toFixed(2);
                     
-                unicorn.flot_tooltip(item.pageX, item.pageY,item.series.label + " of " + x + " = " + y);
+                maruti.flot_tooltip(item.pageX, item.pageY,"Intensidad para la recurrencia de " + x + " minutos es " + y);
             }
             
         } else {

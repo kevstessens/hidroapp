@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
   def calculate_study
     @data_table = DataTable.find(params['data_table_id'])
     @graph_data = Array.new
+    @max_axis = 0
     @data_table.sub_data_tables.order("time_in_minutes ASC").each do |table|
       graph_table = GraphTuple.new
       graph_table.key = table.time_in_minutes
@@ -32,8 +33,15 @@ class SessionsController < ApplicationController
           dif = diference
         end
       end
-      @graph_data << graph_table
+      if !graph_table.key.nil? and !graph_table.value.nil?
+        @graph_data << graph_table
+        if graph_table.value > @max_axis
+          @max_axis = graph_table.value
+        end
+      end
     end
+
+    @graph_data = @graph_data.to_json.html_safe
 
 
   end

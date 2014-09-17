@@ -83,6 +83,32 @@ function resetMenu() {
    document.gomenu.selector.selectedIndex = 2;
 }
 </script>
+
+    <script>
+
+
+  var test= <%= @graph_data unless @graph_data.nil?%>
+
+  var graph_data = [];
+    for (var i = 0; i < test.length; i += 1) {
+        graph_data.push([test[i].key, test[i].value]);
+    }
+
+$(document).ready(function(){
+
+    var plot = $.plot($(".chart"),
+           [ { data: graph_data, label: "Curva IDF", color: "#F77825"} ], {
+               series: {
+                   lines: { show: true },
+                   points: { show: true }
+               },
+               grid: { hoverable: true, clickable: true },
+               yaxis: { min: 0, max: <%= @max_axis unless @max_axis == 0%> }
+		   });
+		      });
+
+
+</script>
     </body>
 
     </html>
